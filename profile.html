@@ -15,12 +15,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script>
-    // Небольшая настройка темы Tailwind: шрифт Inter и пара акцентных цветов.
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
-          colors: { brand: { purple: '#8b5cf6', green: '#22c55e' } },
         },
       },
     };
@@ -28,137 +26,69 @@
 </head>
 
 <body class="min-h-screen bg-[#0a0a0f] font-sans text-zinc-200 antialiased">
-  <!-- Фоновые свечения (фиолетовое сверху-слева, зелёное снизу-справа) -->
+  <!-- Фоновые свечения -->
   <div class="pointer-events-none fixed inset-0 overflow-hidden">
     <div class="absolute -top-40 -left-40 h-[28rem] w-[28rem] rounded-full bg-violet-600/20 blur-[120px]"></div>
     <div class="absolute -bottom-40 -right-40 h-[28rem] w-[28rem] rounded-full bg-emerald-500/15 blur-[120px]"></div>
   </div>
 
-  <div class="relative flex min-h-screen">
-    <!-- ───────────────── Сайдбар ───────────────── -->
-    <aside class="hidden w-64 shrink-0 border-r border-white/5 p-6 md:block">
-      <div class="mb-10 flex items-center gap-1 text-xl font-bold text-white">
-        UX Hero<span class="text-violet-500">.</span>
+  <!-- Одна центрированная карточка -->
+  <main class="relative flex min-h-screen items-center justify-center px-5 py-10">
+    <section class="w-full max-w-xl rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
+      <!-- Шапка: аватар + имя + роль + специализации -->
+      <div class="flex items-center gap-4">
+        <img src="https://github.com/alexminsk7.png" alt="avatar"
+             class="h-16 w-16 rounded-full border border-white/10 object-cover" />
+        <div>
+          <p class="text-lg font-semibold text-white">Aliaksandr Lisouski</p>
+          <p class="text-sm text-zinc-400">Mobile Designer · UX/UI Designer · Design Engineer</p>
+          <p class="text-sm text-zinc-400">Учень UX Hero</p>
+        </div>
       </div>
 
-      <nav class="space-y-1 text-sm">
-        <!-- Головна -->
-        <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-zinc-400 transition hover:bg-white/5 hover:text-white">
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
-          Головна
-        </a>
-        <!-- Курси -->
-        <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-zinc-400 transition hover:bg-white/5 hover:text-white">
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5h11a2 2 0 012 2v12a2 2 0 00-2-2H4z M20 5h-3"/></svg>
-          Курси
-        </a>
-        <!-- Корисні лінки -->
-        <a href="#" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-zinc-400 transition hover:bg-white/5 hover:text-white">
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5a4 4 0 00-5.66 0l-2.5 2.5a4 4 0 105.66 5.66l1-1 M10.5 13.5a4 4 0 005.66 0l2.5-2.5a4 4 0 10-5.66-5.66l-1 1"/></svg>
-          Корисні лінки
-        </a>
-        <!-- Профіль (активный) -->
-        <a href="#" class="flex items-center gap-3 rounded-lg bg-violet-500/10 px-3 py-2.5 font-medium text-violet-400">
-          <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 12a4 4 0 100-8 4 4 0 000 8zM4 20a8 8 0 0116 0"/></svg>
-          Профіль
-        </a>
-      </nav>
-    </aside>
+      <div class="my-6 border-t border-white/10"></div>
 
-    <!-- ───────────────── Основная область ───────────────── -->
-    <main class="flex-1 px-5 py-8 md:px-10 md:py-12">
-      <div class="mx-auto max-w-2xl">
-        <h1 class="mb-8 text-3xl font-bold text-white">Профіль</h1>
-
-        <!-- Карточка профиля -->
-        <section class="rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
-          <!-- Шапка: аватар + email + роль -->
-          <div class="flex items-center gap-4">
-            <img src="https://github.com/alexminsk7.png" alt="avatar"
-                 class="h-16 w-16 rounded-full border border-white/10 object-cover" />
-            <div>
-              <p class="font-medium text-white">lisouski87@gmail.com</p>
-              <p class="text-sm text-zinc-400">учень UX Hero</p>
-            </div>
+      <!-- Мої курси -->
+      <p class="mb-3 text-sm text-zinc-400">Мої курси</p>
+      <div class="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <!-- DE -->
+        <div class="relative flex min-h-[150px] flex-col justify-end overflow-hidden rounded-xl border border-white/10 bg-[#111018] p-5">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(139,92,246,0.5),transparent_70%)]"></div>
+          <span class="absolute right-3 top-3 rounded-full bg-violet-500/20 px-2.5 py-1 text-[11px] font-medium text-violet-300">Куплено</span>
+          <div class="relative">
+            <p class="mb-2 text-2xl font-extrabold text-violet-400">DE</p>
+            <h3 class="font-semibold text-white">Design Engineer</h3>
+            <p class="mt-0.5 text-xs text-zinc-400">React + AI + Storybook. Воркбук з відео.</p>
           </div>
-
-          <div class="my-6 border-t border-white/10"></div>
-
-          <!-- Мої курси -->
-          <div class="mb-6 flex items-center justify-between">
-            <span class="text-sm text-zinc-400">Мої курси</span>
-            <span class="text-sm font-medium text-white">2 · Design Engineer, Дизайн-система</span>
+        </div>
+        <!-- DS -->
+        <div class="relative flex min-h-[150px] flex-col justify-end overflow-hidden rounded-xl border border-white/10 bg-[#111018] p-5">
+          <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(34,197,94,0.45),transparent_70%)]"></div>
+          <span class="absolute right-3 top-3 rounded-full bg-emerald-500/20 px-2.5 py-1 text-[11px] font-medium text-emerald-300">Куплено</span>
+          <div class="relative">
+            <p class="mb-2 text-2xl font-extrabold text-emerald-400">DS</p>
+            <h3 class="font-semibold text-white">Дизайн-система + AI за 7 днів</h3>
+            <p class="mt-0.5 text-xs text-zinc-400">Токени, Figma Variables → код.</p>
           </div>
-
-          <!-- Поля: Ім'я / Прізвище -->
-          <div class="mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-              <label class="mb-1.5 block text-xs text-zinc-400">Ім'я</label>
-              <input type="text" value="Aliaksandr"
-                     class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-violet-500/60 focus:ring-2 focus:ring-violet-500/20" />
-            </div>
-            <div>
-              <label class="mb-1.5 block text-xs text-zinc-400">Прізвище</label>
-              <input type="text" value="Lisouski"
-                     class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-violet-500/60 focus:ring-2 focus:ring-violet-500/20" />
-            </div>
-          </div>
-
-          <!-- Telegram -->
-          <div class="mb-6">
-            <label class="mb-1.5 block text-xs text-zinc-400">Telegram</label>
-            <input type="text" value="https://t.me/beMinimalis_t"
-                   class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white outline-none transition focus:border-violet-500/60 focus:ring-2 focus:ring-violet-500/20" />
-          </div>
-
-          <!-- Кнопка -->
-          <button class="w-full rounded-lg bg-white py-3 font-semibold text-black transition hover:bg-zinc-200">
-            Зберегти
-          </button>
-
-          <!-- Выход -->
-          <div class="mt-5">
-            <a href="#" class="text-sm text-zinc-500 transition hover:text-zinc-300">Вийти</a>
-          </div>
-        </section>
-
-        <!-- Доп. карточка: данные с GitHub -->
-        <section class="mt-6 rounded-2xl border border-white/10 bg-white/[0.03] p-6 md:p-8">
-          <div class="mb-4 flex items-center gap-2">
-            <svg class="h-5 w-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-1.8c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 .1.8 1.7 2.6 1.2.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 016 0C17 5 18 5.3 18 5.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-            <h2 class="font-semibold text-white">GitHub</h2>
-          </div>
-
-          <p class="mb-5 text-sm text-zinc-400">Mobile Designer · UX/UI Designer · Design Engineer</p>
-
-          <!-- Статистика -->
-          <div class="mb-5 grid grid-cols-3 gap-3">
-            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
-              <p class="text-xl font-bold text-white">78</p>
-              <p class="text-xs text-zinc-400">Repositories</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
-              <p class="text-xl font-bold text-white">2</p>
-              <p class="text-xs text-zinc-400">Followers</p>
-            </div>
-            <div class="rounded-xl border border-white/10 bg-white/5 p-4 text-center">
-              <p class="text-xl font-bold text-white">2</p>
-              <p class="text-xs text-zinc-400">Following</p>
-            </div>
-          </div>
-
-          <!-- Ссылки -->
-          <div class="flex flex-wrap gap-2">
-            <a href="https://github.com/alexminsk7" target="_blank"
-               class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300 transition hover:border-violet-500/50 hover:text-white">github.com/alexminsk7</a>
-            <a href="https://lisouski.web.app/" target="_blank"
-               class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300 transition hover:border-violet-500/50 hover:text-white">lisouski.web.app</a>
-            <a href="https://www.linkedin.com/in/aliaksandr-lisouski" target="_blank"
-               class="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300 transition hover:border-violet-500/50 hover:text-white">in/aliaksandr-lisouski</a>
-          </div>
-        </section>
+        </div>
       </div>
-    </main>
-  </div>
+
+      <!-- Лінки -->
+      <p class="mb-3 text-sm text-zinc-400">Лінки</p>
+      <div class="flex gap-2">
+        <a href="https://github.com/alexminsk7" target="_blank"
+           class="flex-1 whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-center text-xs text-zinc-300 transition hover:bg-white/10 hover:text-white">github.com/alexminsk7</a>
+        <a href="https://t.me/beMinimalis_t" target="_blank"
+           class="flex-1 whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-center text-xs text-zinc-300 transition hover:bg-white/10 hover:text-white">t.me/beMinimalis_t</a>
+        <a href="https://www.linkedin.com/in/aliaksandr-lisouski" target="_blank"
+           class="flex-1 whitespace-nowrap rounded-full border border-white/10 bg-white/5 px-3 py-2 text-center text-xs text-zinc-300 transition hover:bg-white/10 hover:text-white">in/aliaksandr-lisouski</a>
+      </div>
+
+      <!-- Кнопка выхода -->
+      <button class="mt-6 w-full rounded-lg border border-white/10 bg-white/5 py-2.5 text-sm font-medium text-zinc-300 transition hover:bg-white/10 hover:text-white">
+        Вийти
+      </button>
+    </section>
+  </main>
 </body>
 </html>
