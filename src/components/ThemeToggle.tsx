@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Moon, Sun } from 'lucide-react'
 import { Button } from './Button'
 
 type Theme = 'light' | 'dark'
@@ -18,10 +19,11 @@ export function ThemeToggle() {
 
   return (
     <Button
+      size="icon"
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
       onClick={() => setTheme((t) => (t === 'dark' ? 'light' : 'dark'))}
     >
-      {theme === 'dark' ? '☀ Light' : '☾ Dark'}
+      {theme === 'dark' ? <Sun size={18} aria-hidden="true" /> : <Moon size={18} aria-hidden="true" />}
     </Button>
   )
 }

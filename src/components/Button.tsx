@@ -1,9 +1,11 @@
 import { type ButtonHTMLAttributes } from 'react'
 
 type ButtonVariant = 'default' | 'primary'
+type ButtonSize = 'default' | 'icon'
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant
+  size?: ButtonSize
   fullWidth?: boolean
 }
 
@@ -14,8 +16,14 @@ const variantClasses: Record<ButtonVariant, string> = {
   primary: 'bg-violet-600 text-white hover:bg-violet-500',
 }
 
+const sizeClasses: Record<ButtonSize, string> = {
+  default: 'px-4 py-2.5',
+  icon: 'h-9 w-9',
+}
+
 export function Button({
   variant = 'default',
+  size = 'default',
   fullWidth = false,
   type = 'button',
   className = '',
@@ -24,7 +32,7 @@ export function Button({
   return (
     <button
       type={type}
-      className={`inline-flex items-center justify-center rounded-lg px-4 py-2.5 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-50 ${fullWidth ? 'w-full' : ''} ${variantClasses[variant]} ${className}`}
+      className={`inline-flex items-center justify-center rounded-lg text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 disabled:pointer-events-none disabled:opacity-50 ${sizeClasses[size]} ${fullWidth ? 'w-full' : ''} ${variantClasses[variant]} ${className}`}
       {...props}
     />
   )
