@@ -1,20 +1,17 @@
-import { Button } from './components/Button'
+import { Profile } from './components/Profile'
 
 function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#0a0a0f] p-6 text-zinc-100">
-      <div className="w-full max-w-sm space-y-3 rounded-2xl border border-white/10 bg-white/[0.03] p-6">
-        <h1 className="text-lg font-semibold text-white">Button component</h1>
-        <Button fullWidth>Вийти</Button>
-        <Button variant="primary" fullWidth>
-          Primary
-        </Button>
-        <div className="flex gap-2">
-          <Button>Default</Button>
-          <Button disabled>Disabled</Button>
-        </div>
+    <div className="relative min-h-screen bg-zinc-100 text-zinc-900 dark:bg-[#0a0a0f] dark:text-zinc-200">
+      {/* decorative background glows (from the original profile) */}
+      <div className="pointer-events-none fixed inset-0 overflow-hidden">
+        <div className="absolute -top-40 -left-40 h-[28rem] w-[28rem] rounded-full bg-violet-600/20 blur-[120px]" />
+        <div className="absolute -bottom-40 -right-40 h-[28rem] w-[28rem] rounded-full bg-emerald-500/15 blur-[120px]" />
       </div>
-    </main>
+      <main className="relative flex min-h-screen items-center justify-center px-5 py-10">
+        <Profile />
+      </main>
+    </div>
   )
 }
 

@@ -8,8 +8,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-  // Mirrors the "Вийти" logout button from profile.html.
-  default: 'border border-white/10 bg-white/5 text-zinc-300 hover:bg-white/10 hover:text-white',
+  // Subtle bordered button (the original "Вийти" / logout style), theme-aware.
+  default:
+    'border border-zinc-200 bg-zinc-100 text-zinc-700 hover:bg-zinc-200 hover:text-zinc-900 dark:border-white/10 dark:bg-white/5 dark:text-zinc-300 dark:hover:bg-white/10 dark:hover:text-white',
   primary: 'bg-violet-600 text-white hover:bg-violet-500',
 }
 
