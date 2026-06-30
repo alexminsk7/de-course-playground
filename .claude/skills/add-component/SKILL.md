@@ -26,4 +26,4 @@ Create a new React component that matches this repo's conventions.
 ## Scope
 - One component per invocation — no extra variants "for later".
 - Do not add dependencies.
-- Do not touch `profile.html`.
+- Do not modify unrelated files — only the new component and where it's used.
